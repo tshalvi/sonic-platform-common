@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Optional
 
+from sonic_platform_base.xcvr_base import XcvrBase
 from sonic_platform_base.sonic_xcvr.xcvr_eeprom import XcvrEeprom
 from sonic_platform_base.sonic_xcvr.eeprom_rw import EepromReadWriteMixin
 
@@ -55,7 +56,7 @@ class CpoDeviceBase(EepromReadWriteMixin):
         return self._api
 
 
-class CpoBase:
+class CpoBase(XcvrBase):
     def __init__(self, hardware_id: CpoHardwareId, oe: "OeBase", elsfp: "ElsfpBase"):
         self.hardware_id = hardware_id
         self.oe = oe
